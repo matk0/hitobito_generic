@@ -18,6 +18,9 @@ module HitobitoGeneric
     config.to_prepare do
       # extend application classes here
       Group.send :include, Group::Generic
+      PeopleController.send :include, Generic::PeopleController
+      Export::Tabular::People::PeopleAddress.send :include, Generic::Export::Tabular::People::PeopleAddress
+      Person.send :include, Generic::Person
     end
 
     initializer 'hitobito_generic.add_settings' do |_app|
